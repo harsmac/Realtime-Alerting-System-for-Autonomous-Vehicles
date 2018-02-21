@@ -3,13 +3,16 @@
 Created on Mon Dec 11 13:10:58 2017
 
 @author: harshitha
-Dscription : Program Scores the list of images from a folder wrt its clone
+Dscription : Program Scores the list of images from a folder wrt its clone.Change the file paths of the clone and bad weather 
+		to make it run. The scores are finally saved as npy files.
 """
 
 import numpy as np
 import re
 
+# Parameter definition
 Lambda=5000
+# Image length and breadth
 L=375
 B=1242
 LB=float(L*B)
@@ -21,6 +24,7 @@ def metric(x1,x2,sigma_1,sigma_2):
 		t=np.dot(np.dot((x1-x2),A),(x1-x2).T)
 		# print "t value.... ",t[0,0]
 		return t[0,0]
+# 	If the confidence values are equal
 	else:
 		t=np.dot((x1-x2),(x1-x2).T)
 		# print t[0,0]
@@ -28,7 +32,7 @@ def metric(x1,x2,sigma_1,sigma_2):
 
 
 
-# Parse the following files : 
+# Parse the following files : Change the file paths
 clone_file_path='/home/harshitha/Desktop/pls_2/AGV_project/ICIP_2018/gpu_backup/predictions/0020_results/result_0020_clone.txt'
 bad_weather_path='/home/harshitha/Desktop/pls_2/AGV_project/ICIP_2018/gpu_backup/predictions/0020_results/result_0020_sunset.txt'
 
