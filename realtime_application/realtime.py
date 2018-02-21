@@ -3,7 +3,9 @@
 Created on Mon Dec 11 13:10:58 2017
 
 @author: harshitha
-Dscription : Program performs the realtime application for the AGV project.
+Dscription : Program performs the realtime application for the AGV project.The code firstlu loads the npy files of the VKITTI 
+		metric scores and the final_dist folders npy files available at (https://drive.google.com/drive/folders/1TO6UEdBqJaRKV9AMWFd9nffi7oXk09Bk?usp=sharing).
+	    The program then 	
 """
 import cv2
 import os
@@ -46,74 +48,75 @@ start_time=time.time()
 # LOAD IMAGE SCORES
 
 # For 0001
-dusk_score_0001 = np.load('/home/harshitha/Desktop/pls_2/AGV_project/ICIP_2018/metric_codes/0001_scores/0001_sunset_scores.npy')
-dusk_files_0001 = np.load('/home/harshitha/Desktop/pls_2/AGV_project/ICIP_2018/metric_codes/0001_scores/0001_sunset_file_names.npy')
+dusk_score_0001 = np.load('/metric_codes/0001_scores/0001_sunset_scores.npy')
+dusk_files_0001 = np.load('/metric_codes/0001_scores/0001_sunset_file_names.npy')
 
-overcast_score_0001 = np.load('/home/harshitha/Desktop/pls_2/AGV_project/ICIP_2018/metric_codes/0001_scores/0001_overcast_scores.npy')
-overcast_files_0001 = np.load('/home/harshitha/Desktop/pls_2/AGV_project/ICIP_2018/metric_codes/0001_scores/0001_overcast_file_names.npy')
+overcast_score_0001 = np.load('/metric_codes/0001_scores/0001_overcast_scores.npy')
+overcast_files_0001 = np.load('/metric_codes/0001_scores/0001_overcast_file_names.npy')
 
-rain_score_0001 = np.load('/home/harshitha/Desktop/pls_2/AGV_project/ICIP_2018/metric_codes/0001_scores/0001_rain_scores.npy')
-rain_files_0001 = np.load('/home/harshitha/Desktop/pls_2/AGV_project/ICIP_2018/metric_codes/0001_scores/0001_rain_file_names.npy')
+rain_score_0001 = np.load('/metric_codes/0001_scores/0001_rain_scores.npy')
+rain_files_0001 = np.load('/metric_codes/0001_scores/0001_rain_file_names.npy')
 
-sun_score_0001 = np.load('/home/harshitha/Desktop/pls_2/AGV_project/ICIP_2018/metric_codes/0001_scores/0001_morning_scores.npy')
-sun_files_0001 = np.load('/home/harshitha/Desktop/pls_2/AGV_project/ICIP_2018/metric_codes/0001_scores/0001_morning_file_names.npy')
+sun_score_0001 = np.load('/metric_codes/0001_scores/0001_morning_scores.npy')
+sun_files_0001 = np.load('/metric_codes/0001_scores/0001_morning_file_names.npy')
 
 # For 0002
-dusk_score_0002 = np.load('/home/harshitha/Desktop/pls_2/AGV_project/ICIP_2018/metric_codes/0002_scores/0002_sunset_scores.npy')
-dusk_files_0002 = np.load('/home/harshitha/Desktop/pls_2/AGV_project/ICIP_2018/metric_codes/0002_scores/0002_sunset_file_names.npy')
+dusk_score_0002 = np.load('/metric_codes/0002_scores/0002_sunset_scores.npy')
+dusk_files_0002 = np.load('/metric_codes/0002_scores/0002_sunset_file_names.npy')
 
-overcast_score_0002 = np.load('/home/harshitha/Desktop/pls_2/AGV_project/ICIP_2018/metric_codes/0002_scores/0002_overcast_scores.npy')
-overcast_files_0002 = np.load('/home/harshitha/Desktop/pls_2/AGV_project/ICIP_2018/metric_codes/0002_scores/0002_overcast_file_names.npy')
+overcast_score_0002 = np.load('/metric_codes/0002_scores/0002_overcast_scores.npy')
+overcast_files_0002 = np.load('/metric_codes/0002_scores/0002_overcast_file_names.npy')
 
-rain_score_0002 = np.load('/home/harshitha/Desktop/pls_2/AGV_project/ICIP_2018/metric_codes/0002_scores/0002_rain_scores.npy')
-rain_files_0002 = np.load('/home/harshitha/Desktop/pls_2/AGV_project/ICIP_2018/metric_codes/0002_scores/0002_rain_file_names.npy')
+rain_score_0002 = np.load('/metric_codes/0002_scores/0002_rain_scores.npy')
+rain_files_0002 = np.load('/metric_codes/0002_scores/0002_rain_file_names.npy')
 
-sun_score_0002 = np.load('/home/harshitha/Desktop/pls_2/AGV_project/ICIP_2018/metric_codes/0002_scores/0002_morning_scores.npy')
-sun_files_0002 = np.load('/home/harshitha/Desktop/pls_2/AGV_project/ICIP_2018/metric_codes/0002_scores/0002_morning_file_names.npy')
+sun_score_0002 = np.load('/metric_codes/0002_scores/0002_morning_scores.npy')
+sun_files_0002 = np.load('/metric_codes/0002_scores/0002_morning_file_names.npy')
 
 # For 0006
-dusk_score_0006 = np.load('/home/harshitha/Desktop/pls_2/AGV_project/ICIP_2018/metric_codes/0006_scores/0006_sunset_scores.npy')
-dusk_files_0006 = np.load('/home/harshitha/Desktop/pls_2/AGV_project/ICIP_2018/metric_codes/0006_scores/0006_sunset_file_names.npy')
+dusk_score_0006 = np.load('/metric_codes/0006_scores/0006_sunset_scores.npy')
+dusk_files_0006 = np.load('/metric_codes/0006_scores/0006_sunset_file_names.npy')
 
-overcast_score_0006 = np.load('/home/harshitha/Desktop/pls_2/AGV_project/ICIP_2018/metric_codes/0006_scores/0006_overcast_scores.npy')
-overcast_files_0006 = np.load('/home/harshitha/Desktop/pls_2/AGV_project/ICIP_2018/metric_codes/0006_scores/0006_overcast_file_names.npy')
+overcast_score_0006 = np.load('/metric_codes/0006_scores/0006_overcast_scores.npy')
+overcast_files_0006 = np.load('/metric_codes/0006_scores/0006_overcast_file_names.npy')
 
-rain_score_0006 = np.load('/home/harshitha/Desktop/pls_2/AGV_project/ICIP_2018/metric_codes/0006_scores/0006_rain_scores.npy')
-rain_files_0006 = np.load('/home/harshitha/Desktop/pls_2/AGV_project/ICIP_2018/metric_codes/0006_scores/0006_rain_file_names.npy')
+rain_score_0006 = np.load('/metric_codes/0006_scores/0006_rain_scores.npy')
+rain_files_0006 = np.load('/metric_codes/0006_scores/0006_rain_file_names.npy')
 
-sun_score_0006 = np.load('/home/harshitha/Desktop/pls_2/AGV_project/ICIP_2018/metric_codes/0006_scores/0006_morning_scores.npy')
-sun_files_0006 = np.load('/home/harshitha/Desktop/pls_2/AGV_project/ICIP_2018/metric_codes/0006_scores/0006_morning_file_names.npy')
+sun_score_0006 = np.load('/metric_codes/0006_scores/0006_morning_scores.npy')
+sun_files_0006 = np.load('/metric_codes/0006_scores/0006_morning_file_names.npy')
 
 # For 0018 
-dusk_score_0018 = np.load('/home/harshitha/Desktop/pls_2/AGV_project/ICIP_2018/metric_codes/0018_scores/0018_sunset_scores.npy')
-dusk_files_0018 = np.load('/home/harshitha/Desktop/pls_2/AGV_project/ICIP_2018/metric_codes/0018_scores/0018_sunset_file_names.npy')
+dusk_score_0018 = np.load('/metric_codes/0018_scores/0018_sunset_scores.npy')
+dusk_files_0018 = np.load('/metric_codes/0018_scores/0018_sunset_file_names.npy')
 
-overcast_score_0018 = np.load('/home/harshitha/Desktop/pls_2/AGV_project/ICIP_2018/metric_codes/0018_scores/0018_overcast_scores.npy')
-overcast_files_0018 = np.load('/home/harshitha/Desktop/pls_2/AGV_project/ICIP_2018/metric_codes/0018_scores/0018_overcast_file_names.npy')
+overcast_score_0018 = np.load('/metric_codes/0018_scores/0018_overcast_scores.npy')
+overcast_files_0018 = np.load('/metric_codes/0018_scores/0018_overcast_file_names.npy')
 
-rain_score_0018 = np.load('/home/harshitha/Desktop/pls_2/AGV_project/ICIP_2018/metric_codes/0018_scores/0018_rain_scores.npy')
-rain_files_0018 = np.load('/home/harshitha/Desktop/pls_2/AGV_project/ICIP_2018/metric_codes/0018_scores/0018_rain_file_names.npy')
+rain_score_0018 = np.load('/metric_codes/0018_scores/0018_rain_scores.npy')
+rain_files_0018 = np.load('/metric_codes/0018_scores/0018_rain_file_names.npy')
 
-sun_score_0018 = np.load('/home/harshitha/Desktop/pls_2/AGV_project/ICIP_2018/metric_codes/0018_scores/0018_morning_scores.npy')
-sun_files_0018 = np.load('/home/harshitha/Desktop/pls_2/AGV_project/ICIP_2018/metric_codes/0018_scores/0018_morning_file_names.npy')
+sun_score_0018 = np.load('/metric_codes/0018_scores/0018_morning_scores.npy')
+sun_files_0018 = np.load('/metric_codes/0018_scores/0018_morning_file_names.npy')
 
 # For 0020
-dusk_score_0020 = np.load('/home/harshitha/Desktop/pls_2/AGV_project/ICIP_2018/metric_codes/0020_scores/0020_sunset_scores.npy')
-dusk_files_0020 = np.load('/home/harshitha/Desktop/pls_2/AGV_project/ICIP_2018/metric_codes/0020_scores/0020_sunset_file_names.npy')
+dusk_score_0020 = np.load('/metric_codes/0020_scores/0020_sunset_scores.npy')
+dusk_files_0020 = np.load('/metric_codes/0020_scores/0020_sunset_file_names.npy')
 
-overcast_score_0020 = np.load('/home/harshitha/Desktop/pls_2/AGV_project/ICIP_2018/metric_codes/0020_scores/0020_overcast_scores.npy')
-overcast_files_0020 = np.load('/home/harshitha/Desktop/pls_2/AGV_project/ICIP_2018/metric_codes/0020_scores/0020_overcast_file_names.npy')
+overcast_score_0020 = np.load('/metric_codes/0020_scores/0020_overcast_scores.npy')
+overcast_files_0020 = np.load('/metric_codes/0020_scores/0020_overcast_file_names.npy')
 
-rain_score_0020 = np.load('/home/harshitha/Desktop/pls_2/AGV_project/ICIP_2018/metric_codes/0020_scores/0020_rain_scores.npy')
-rain_files_0020 = np.load('/home/harshitha/Desktop/pls_2/AGV_project/ICIP_2018/metric_codes/0020_scores/0020_rain_file_names.npy')
+rain_score_0020 = np.load('/metric_codes/0020_scores/0020_rain_scores.npy')
+rain_files_0020 = np.load('/metric_codes/0020_scores/0020_rain_file_names.npy')
 
-sun_score_0020 = np.load('/home/harshitha/Desktop/pls_2/AGV_project/ICIP_2018/metric_codes/0020_scores/0020_morning_scores.npy')
-sun_files_0020 = np.load('/home/harshitha/Desktop/pls_2/AGV_project/ICIP_2018/metric_codes/0020_scores/0020_morning_file_names.npy')
+sun_score_0020 = np.load('/metric_codes/0020_scores/0020_morning_scores.npy')
+sun_files_0020 = np.load('/metric_codes/0020_scores/0020_morning_file_names.npy')
 
 #####################################################################################################################################
 
 str_index = ['0001','0002','0006','0018','0020']
 
+# Function to get the nearest image's score from vkitti dataset
 def score_pred(pred,folder_ind,file_ind):
 	#print "FILE INDEX: ",file_ind
 	# Folder 0001 
@@ -231,13 +234,16 @@ def score_pred(pred,folder_ind,file_ind):
 			print "Corresponding Score: ",sun_score_0020[file_ind]
 			return sun_score_0020[file_ind],sun_files_0020[file_ind]
 
-
+# Finding closest/nearest image from vkitti dataset using correlation
 def closest_vector(x_vector, vkitti_vectors):
 	dist=[]
 	for i in range(vkitti_vectors.shape[0]):
 		dist+=[1-scipy.spatial.distance.correlation(x_vector,vkitti_vectors[i,:])]
 	return np.argmin(dist),min(dist)
 
+#################################################################################################################3
+
+# LBP parameters
 radius = 3
 # Number of points to be considered as neighbours 
 no_points = 8 * radius
@@ -251,35 +257,34 @@ with open('random_forest_model', 'rb') as f:
 	rf = cPickle.load(f)
 
 # Load the vkitti images feature vectors 
-
 # DUSK == SUNSET(1)
-dusk_0001 = np.load('/home/harshitha/Desktop/pls_2/AGV_project/ICIP_2018/realtime_application/final_dist/0001_dist/0001_dusk.npy')
-dusk_0002 = np.load('/home/harshitha/Desktop/pls_2/AGV_project/ICIP_2018/realtime_application/final_dist/0002_dist/0002_dusk.npy')
-dusk_0006 = np.load('/home/harshitha/Desktop/pls_2/AGV_project/ICIP_2018/realtime_application/final_dist/0006_dist/0006_dusk.npy')
-dusk_0018 = np.load('/home/harshitha/Desktop/pls_2/AGV_project/ICIP_2018/realtime_application/final_dist/0018_dist/0018_dusk.npy')
-dusk_0020 = np.load('/home/harshitha/Desktop/pls_2/AGV_project/ICIP_2018/realtime_application/final_dist/0020_dist/0020_dusk.npy')
+dusk_0001 = np.load('/realtime_application/final_dist/0001_dist/0001_dusk.npy')
+dusk_0002 = np.load('/realtime_application/final_dist/0002_dist/0002_dusk.npy')
+dusk_0006 = np.load('/realtime_application/final_dist/0006_dist/0006_dusk.npy')
+dusk_0018 = np.load('/realtime_application/final_dist/0018_dist/0018_dusk.npy')
+dusk_0020 = np.load('/realtime_application/final_dist/0020_dist/0020_dusk.npy')
 
 
 # OVERCAST == CLOUDY (2)
-overcast_0001 = np.load('/home/harshitha/Desktop/pls_2/AGV_project/ICIP_2018/realtime_application/final_dist/0001_dist/0001_overcast.npy')
-overcast_0002 = np.load('/home/harshitha/Desktop/pls_2/AGV_project/ICIP_2018/realtime_application/final_dist/0002_dist/0002_overcast.npy')
-overcast_0006 = np.load('/home/harshitha/Desktop/pls_2/AGV_project/ICIP_2018/realtime_application/final_dist/0006_dist/0006_overcast.npy')
-overcast_0018 = np.load('/home/harshitha/Desktop/pls_2/AGV_project/ICIP_2018/realtime_application/final_dist/0018_dist/0018_overcast.npy')
-overcast_0020 = np.load('/home/harshitha/Desktop/pls_2/AGV_project/ICIP_2018/realtime_application/final_dist/0020_dist/0020_overcast.npy')
+overcast_0001 = np.load('/realtime_application/final_dist/0001_dist/0001_overcast.npy')
+overcast_0002 = np.load('/realtime_application/final_dist/0002_dist/0002_overcast.npy')
+overcast_0006 = np.load('/realtime_application/final_dist/0006_dist/0006_overcast.npy')
+overcast_0018 = np.load('/realtime_application/final_dist/0018_dist/0018_overcast.npy')
+overcast_0020 = np.load('/realtime_application/final_dist/0020_dist/0020_overcast.npy')
 
 # RAIN (3)
-rain_0001 = np.load('/home/harshitha/Desktop/pls_2/AGV_project/ICIP_2018/realtime_application/final_dist/0001_dist/0001_rain.npy')
-rain_0002 = np.load('/home/harshitha/Desktop/pls_2/AGV_project/ICIP_2018/realtime_application/final_dist/0002_dist/0002_rain.npy')
-rain_0006 = np.load('/home/harshitha/Desktop/pls_2/AGV_project/ICIP_2018/realtime_application/final_dist/0006_dist/0006_rain.npy')
-rain_0018 = np.load('/home/harshitha/Desktop/pls_2/AGV_project/ICIP_2018/realtime_application/final_dist/0018_dist/0018_rain.npy')
-rain_0020 = np.load('/home/harshitha/Desktop/pls_2/AGV_project/ICIP_2018/realtime_application/final_dist/0020_dist/0020_rain.npy')
+rain_0001 = np.load('/realtime_application/final_dist/0001_dist/0001_rain.npy')
+rain_0002 = np.load('/realtime_application/final_dist/0002_dist/0002_rain.npy')
+rain_0006 = np.load('/realtime_application/final_dist/0006_dist/0006_rain.npy')
+rain_0018 = np.load('/realtime_application/final_dist/0018_dist/0018_rain.npy')
+rain_0020 = np.load('/realtime_application/final_dist/0020_dist/0020_rain.npy')
 
 # SUN  == MORNING (4)
-sun_0001 = np.load('/home/harshitha/Desktop/pls_2/AGV_project/ICIP_2018/realtime_application/final_dist/0001_dist/0001_sun.npy')
-sun_0002 = np.load('/home/harshitha/Desktop/pls_2/AGV_project/ICIP_2018/realtime_application/final_dist/0002_dist/0002_sun.npy')
-sun_0006 = np.load('/home/harshitha/Desktop/pls_2/AGV_project/ICIP_2018/realtime_application/final_dist/0006_dist/0006_sun.npy')
-sun_0018 = np.load('/home/harshitha/Desktop/pls_2/AGV_project/ICIP_2018/realtime_application/final_dist/0018_dist/0018_sun.npy')
-sun_0020 = np.load('/home/harshitha/Desktop/pls_2/AGV_project/ICIP_2018/realtime_application/final_dist/0020_dist/0020_sun.npy')
+sun_0001 = np.load('/realtime_application/final_dist/0001_dist/0001_sun.npy')
+sun_0002 = np.load('/realtime_application/final_dist/0002_dist/0002_sun.npy')
+sun_0006 = np.load('/realtime_application/final_dist/0006_dist/0006_sun.npy')
+sun_0018 = np.load('/realtime_application/final_dist/0018_dist/0018_sun.npy')
+sun_0020 = np.load('/realtime_application/final_dist/0020_dist/0020_sun.npy')
 
 ################################################################################################################
 
@@ -287,13 +292,14 @@ X_test=[]
 X_vectors = []
 
 # Test folder path
-folder_path='/home/harshitha/Desktop/pls_2/AGV_project/ICIP_2018/realtime_application/test_images/tests/'
+folder_path='/realtime_application/test_images/tests/'
 
 img_list=os.listdir(folder_path)
 for fil in img_list[:]: # filelist[:] makes a copy of filelist.
 	if not(fil.endswith(".png")):
 		img_list.remove(fil)
-print img_list
+		
+print "List of images: ",img_list
 print "LBP and VGG Features extraction.. "
 i=0
 while i<len(img_list):
@@ -336,18 +342,19 @@ for i in range(len(Y_pred)):
 	# If prediction is dusk
 	if Y_pred[i]==1:
 		print "Predicted DUSK"
+		#Predict closest neighbour for each weather 		
 		ind_0001,dist_0001 = closest_vector(X_vectors[i],dusk_0001)
 		ind_0002,dist_0002 = closest_vector(X_vectors[i],dusk_0002)
 		ind_0006,dist_0006 = closest_vector(X_vectors[i],dusk_0006)
 		ind_0018,dist_0018 = closest_vector(X_vectors[i],dusk_0018)
 		ind_0020,dist_0020 = closest_vector(X_vectors[i],dusk_0020)
-
+		#Predict the closest among all the weather conditions 		
 		dist_final = [dist_0001,dist_0002,dist_0006,dist_0018,dist_0020]
 		ind_final = [ind_0001,ind_0002,ind_0006,ind_0018,ind_0020]
-
+		#Get corresponding file name 		
 		folder_index=np.argmin(dist_final)
 		file_index=ind_final[folder_index]
-
+		#Get corresponding score
 		score_pred(1,folder_index,file_index)
 
 	# Overcast
