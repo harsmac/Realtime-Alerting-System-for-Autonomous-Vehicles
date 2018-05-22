@@ -1,4 +1,0 @@
-dusk1424450487165918.png scores 1
-overcast_1403772884780659.png scores 3
-overcast_1403772872155461.png scores 13
-dusk1424450487165918.png scores 24
