@@ -9,3 +9,6 @@ This folder contains the code for scoring the clone and bad image weather condit
 The second folder contains the script for running a realtime alerting system using the precalculated distance vectors from VGG 16 which are made available here:
 https://drive.google.com/open?id=1TO6UEdBqJaRKV9AMWFd9nffi7oXk09Bk
 
+### 3. realtime_result_images:
+The third folder contains few of the test images from the Oxford Dataset, their scores and the explanations for the same.
+
