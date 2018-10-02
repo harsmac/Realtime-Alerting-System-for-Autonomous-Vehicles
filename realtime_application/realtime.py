@@ -3,9 +3,10 @@
 Created on Mon Dec 11 13:10:58 2017
 
 @author: harshitha
-Dscription : Program performs the realtime application for the AGV project.The code firstlu loads the npy files of the VKITTI 
+Dscription : Program performs the realtime application for the AGV project.The code firstly loads the npy files of the VKITTI 
 		metric scores and the final_dist folders npy files available at (https://drive.google.com/drive/folders/1TO6UEdBqJaRKV9AMWFd9nffi7oXk09Bk?usp=sharing).
-	    The program then 	
+	    The program then does a correlation based image search to find the closest image in the VKITTI dataset and finds 
+	    the corresponding score.
 """
 import cv2
 import os
