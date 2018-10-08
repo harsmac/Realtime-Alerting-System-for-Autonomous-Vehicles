@@ -11,7 +11,10 @@ import numpy as np
 import re
 
 # Parameter definition
+# Very Strict Penalty
 Lambda=5000
+# Liberal Penalty
+# Lambda = 500
 # Image length and breadth
 L=375
 B=1242
