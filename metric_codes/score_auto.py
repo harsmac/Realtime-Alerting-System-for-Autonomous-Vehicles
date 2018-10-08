@@ -214,7 +214,7 @@ for i in range(len(list_final_bad)):
 			wid = mini_good[2][j][2]
 			hig = mini_good[2][j][3]
 			area = area + wid * hig
-		Score = Score + area
+		Score = Score + area*Lambda
 		Score = Score/LB
 		Score_list+=[Score]
 
