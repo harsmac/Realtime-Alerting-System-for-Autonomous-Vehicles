@@ -1,5 +1,6 @@
 # Realtime-Alerting-System-for-Autonomous-Vehicles
-The following repository contains the code for the paper: **"AN EVALUATION METRIC FOR OBJECT DETECTION ALGORITHMS IN AUTONOMOUS NAVIGATION SYSTEMS AND ITS APPLICATION TO A REAL-TIME ALERTING SYSTEM"** which is to be presented at **IEEE ICIP,2018**. https://2018.ieeeicip.org/Papers/ViewPapers_MS.asp?PaperNum=2723
+The following repository contains the code for the paper: **"AN EVALUATION METRIC FOR OBJECT DETECTION ALGORITHMS IN AUTONOMOUS NAVIGATION SYSTEMS AND ITS APPLICATION TO A REAL-TIME ALERTING SYSTEM"** which is to be presented at **IEEE ICIP,2018**. https://2018.ieeeicip.org/Papers/ViewPapers_MS.asp?PaperNum=2723 
+IEEE Xplore link : https://ieeexplore.ieee.org/document/8451718
 
 ## The repository may be divided into three sections:
 ### 1. metric_codes:
